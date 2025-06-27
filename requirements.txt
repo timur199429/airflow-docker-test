@@ -1,3 +1,2 @@
 pandas
 pyarrow
-apache-airflow[google]
