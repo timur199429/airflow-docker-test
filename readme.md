@@ -1,6 +1,6 @@
-1. docker 
-2. docker-compose
-3. git clone
+1. install docker 
+2. install docker-compose
+3. git clone repo
 4. cd to folder
 5. virtualenv
 6. source venv/bin/activate

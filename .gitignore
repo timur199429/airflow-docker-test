@@ -1,3 +1,4 @@
 dags/__pycache__/
 venv
 .env
+logs/dag_processor/
