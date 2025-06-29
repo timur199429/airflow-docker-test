@@ -1,8 +1,8 @@
 from airflow.decorators import dag, task
-from airflow.utils.dates import days_ago
-import datetime
+from airflow.utils import timezone
+from datetime import timedelta
 
-@dag(start_date=days_ago(1), 
+@dag(start_date=timezone.utcnow() - timedelta(days=1), 
      schedule="*/30 * * * *", 
      catchup=False)
 def example_dag():
