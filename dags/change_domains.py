@@ -8,6 +8,7 @@ from urllib.parse import urlparse
 from airflow.decorators import dag, task
 from airflow.utils import timezone
 from datetime import timedelta
+from airflow.models import Variable
 
 
 def extract_domain(url):
@@ -55,7 +56,7 @@ class Headers:
     return {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'ru',
-        'Authorization': f'Bearer {os.getenv("ADPROFEX_TOKEN")}',
+        'Authorization': f'Bearer {Variable.get("ADPROFEX_TOKEN")}',
         'Connection': 'keep-alive',
         'Origin': 'https://advertiser.adprofex.com',
         'Referer': 'https://advertiser.adprofex.com/',
@@ -71,7 +72,7 @@ class Headers:
      return {
     'Accept': 'application/json',
     'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7',
-    'Authorization': f'Bearer {os.getenv("ONEPROFIT_TOKEN")}',}
+    'Authorization': f'Bearer {Variable.get("ONEPROFIT_TOKEN")}',}
 
 class GetTeasers:
   def __init__(self):
